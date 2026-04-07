@@ -250,7 +250,7 @@ export default function GastosPage() {
                   className="flex items-center gap-2 bg-[#ca2c41] text-white px-5 py-2 rounded-full text-xs font-bold tracking-widest shadow hover:bg-[#a11e30] transition-colors uppercase"
                 >
                   <Plus size={14} strokeWidth={3} />
-                  Nuevo Asiento
+                  Nuevo Gasto
                 </button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[425px] bg-white border border-[#2d2b3b]/10 text-[#2d2b3b] rounded-2xl p-6">

@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Themeable Colors - Light Editorial Storytelling */
+    --background: 0 0% 98%; /* #fbfbfb */
+    --foreground: 248 16% 20%; /* #2d2b3b */
+
+    --muted: 240 5% 92%;
+    --muted-foreground: 248 16% 60%;
+    --muted-foreground-light: 248 16% 80%;
+    --muted-foreground-dark: 248 16% 40%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 248 16% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 248 16% 20%;
+
+    /* Primary Accent Colors - Crimson/Red */
+    --primary: 352 64% 48%; /* #ca2c41 */
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 352 70% 38%;
+    --primary-light: 352 50% 90%;
+
+    /* Secondary Accent Colors (for buttons, etc.) */
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 248 16% 20%;
+
+    --accent: 240 5% 92%;
+    --accent-foreground: 248 16% 20%;
+
+    --border: 240 5% 85%;
+    --border-light: 240 5% 92%;
+    --border-dark: 240 5% 75%;
+
+    --ring: 352 64% 48%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar - Light Paper */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 248 16% 20%;
+    --sidebar-primary: 352 64% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 248 16% 20%;
+    --sidebar-border: 240 5% 90%;
+    --sidebar-ring: 352 64% 48%;
+
+    /* Brand Accent (logo orange) */
+    --brand-accent: 25 90% 51%; /* #ea580c */
+
+    /* Success / Growth (emerald green) */
+    --success: 160 84% 39%; /* #10b981 */
+    --success-foreground: 0 0% 100%;
+
+    /* Charts - Michal Carper Palette */
+    --chart-1: 352 64% 48%; /* Crimson */
+    --chart-2: 38 92% 50%; /* #f59e0b Amber */
+    --chart-3: 263 68% 35%; /* #4c1d95 Violet */
+    --chart-4: 200 80% 60%; /* Light Blue */
+    --chart-5: 45 93% 47%; /* Yellow */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

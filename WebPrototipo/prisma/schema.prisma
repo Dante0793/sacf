@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String   @id @default(cuid())
+  name          String
+  email         String   @unique
+  passwordHash  String
+  role          String   @default("usuario")
+  age           Int?
+  monthlyIncome Float    @default(0)
+  createdAt     DateTime @default(now())
+
+  gastos          Gasto[]
+  metas           Meta[]
+  presupuestos    Presupuesto[]
+  comportamientos Comportamiento[]
+}
+
+model Categoria {
+  id    String @id @default(cuid())
+  name  String @unique
+  color String
+  hex   String
+
+  gastos       Gasto[]
+  presupuestos Presupuesto[]
+}
+
+model Gasto {
+  id          String   @id @default(cuid())
+  fecha       String
+  descripcion String
+  monto       Float
+  categoriaId String
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now())
+}
+
+model Meta {
+  id      String @id @default(cuid())
+  name    String
+  target  Float
+  current Float  @default(0)
+  date    String
+  color   String
+  status  String @default("Nueva meta")
+  userId  String
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Presupuesto {
+  id          String @id @default(cuid())
+  asignado    Float
+  gastado     Float  @default(0)
+  periodo     String
+  categoriaId String
+  categoria   Categoria @relation(fields: [categoriaId], references: [id])
+  userId      String
+  user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([categoriaId, periodo, userId])
+}
+
+model Comportamiento {
+  id       String @id @default(cuid())
+  date     String
+  time     String
+  action   String
+  category String
+  impact   String
+  color    String
+  userId   String
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

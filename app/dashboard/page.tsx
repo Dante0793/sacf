@@ -256,14 +256,14 @@ export default function DashboardPage() {
                         <ResponsiveContainer width="50%" height="100%">
                           <PieChart>
                             <Pie data={categoryData} cx="50%" cy="50%" innerRadius={40} outerRadius={65} paddingAngle={2} dataKey="value" stroke="none">
-                              {categoryData.map((entry) => <Cell key={entry.name} fill={entry.color} />)}
+                              {categoryData.map((entry: { name: string; color: string; value: number }) => <Cell key={entry.name} fill={entry.color} />)}
                             </Pie>
                             <Tooltip content={PieTooltip} />
                           </PieChart>
                         </ResponsiveContainer>
                         ) : <div className="w-[50%] h-full bg-[#f3f4f6] rounded-full animate-pulse" />}
                         <div className="w-50% flex flex-col gap-2 justify-center pl-2">
-                          {categoryData.slice(0, 4).map((cat) => (
+                          {categoryData.slice(0, 4).map((cat: { name: string; color: string; value: number }) => (
                             <div key={cat.name} className="flex items-center gap-2">
                               <div className="w-2.5 h-2.5 rounded-sm" style={{ backgroundColor: cat.color }} />
                               <span className="text-xs font-bold text-[#2d2b3b] uppercase truncate max-w-[80px]">{cat.name}</span>
@@ -346,7 +346,7 @@ export default function DashboardPage() {
                           label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
                           labelLine={false}
                         >
-                          {categoryData.map((entry) => (
+                          {categoryData.map((entry: { name: string; color: string; value: number }) => (
                             <Cell key={entry.name} fill={entry.color} />
                           ))}
                         </Pie>
@@ -354,10 +354,10 @@ export default function DashboardPage() {
                       </PieChart>
                     </ResponsiveContainer>
                     ) : <div className="w-full h-full bg-[#f3f4f6] rounded-lg animate-pulse" />}
-                    
+
                     <div className="flex flex-col gap-4 p-6 bg-white border border-[#2d2b3b]/10 rounded-lg shadow-sm min-w-[200px]">
                       <h4 className="text-sm font-bold border-b border-[#2d2b3b]/10 pb-2 uppercase tracking-widest text-[#2d2b3b]">Resumen</h4>
-                      {categoryData.map(cat => (
+                      {categoryData.map((cat: { name: string; color: string; value: number }) => (
                         <div key={cat.name} className="flex justify-between items-center gap-6">
                           <div className="flex items-center gap-2">
                             <div className="w-3 h-3 rounded-full" style={{ background: cat.color }} />

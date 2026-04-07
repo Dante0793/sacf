@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
 import { SidebarProvider, SidebarInset, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/dashboard/app-sidebar"
@@ -23,6 +24,35 @@ const breadcrumbMap: Record<string, string> = {
   "/dashboard/configuracion": "Configuración",
 }
 
+function PrototypeModal({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+      <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-8 flex flex-col gap-6 border border-[#e5e7eb]">
+        <div className="flex flex-col gap-1">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-[#ca2c41]">Aviso importante</span>
+          <h2 className="text-2xl font-black font-serif text-[#2d2b3b] leading-tight">
+            Esto es un <span className="italic text-[#4c1d95]">Prototipo</span>
+          </h2>
+        </div>
+        <div className="border-t border-[#e5e7eb] pt-4 flex flex-col gap-3 text-[15px] text-[#2d2b3b]/80 leading-relaxed font-sans">
+          <p>
+            La aplicación que estás explorando es un <strong>prototipo de demostración</strong> y no representa el producto final.
+          </p>
+          <p>
+            Algunos datos mostrados son ficticios y están aquí únicamente con fines ilustrativos. Algunas funciones pueden estar incompletas o comportarse de manera inesperada.
+          </p>
+        </div>
+        <button
+          onClick={onClose}
+          className="mt-2 w-full py-3 bg-[#2d2b3b] text-white rounded-xl text-sm font-bold uppercase tracking-widest hover:bg-[#4c1d95] transition-colors"
+        >
+          Entendido, continuar
+        </button>
+      </div>
+    </div>
+  )
+}
+
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return <DashboardLayoutInner>{children}</DashboardLayoutInner>
 }
@@ -30,9 +60,22 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const pageTitle = breadcrumbMap[pathname] ?? "Dashboard"
+  const [showModal, setShowModal] = useState(false)
+
+  useEffect(() => {
+    if (!localStorage.getItem("sacf_prototype_seen")) {
+      setShowModal(true)
+    }
+  }, [])
+
+  function handleClose() {
+    localStorage.setItem("sacf_prototype_seen", "1")
+    setShowModal(false)
+  }
 
   return (
     <SidebarProvider>
+      {showModal && <PrototypeModal onClose={handleClose} />}
       <AppSidebar />
       <SidebarInset>
         {/* Top bar */}

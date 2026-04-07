@@ -217,7 +217,7 @@ export default function PerfilFinancieroPage() {
                             <div className="absolute left-[85px] top-2 bottom-0 w-px bg-[#2d2b3b]/10 -z-0" />
 
                             {/* Muestra solo los primeros 3 en la vista principal */}
-                            {behaviourLog.slice(0, 3).map((log, idx) => (
+                            {behaviourLog.slice(0, 3).map((log: any, idx: number) => (
                                <div key={idx} className="flex items-start w-full gap-5 group py-4 relative z-10 transition-colors hover:bg-[#f3f4f6]/40 rounded-xl px-2">
                                   <div className="flex flex-col items-end shrink-0 w-[55px] pt-1">
                                      <span className="text-[10px] font-bold text-[#2d2b3b]/40 uppercase tracking-widest leading-none mb-1">
@@ -284,7 +284,7 @@ export default function PerfilFinancieroPage() {
                         </div>
 
                         <div className="flex flex-col gap-4 relative w-full h-full">
-                            {behaviourLog.map((log, idx) => (
+                            {behaviourLog.map((log: any, idx: number) => (
                                <motion.div 
                                  initial={{ opacity: 0, y: 15 }}
                                  animate={{ opacity: 1, y: 0 }}

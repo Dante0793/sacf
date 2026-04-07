@@ -1,17 +1,11 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
-import { jwtVerify } from "jose"
-
-const secret = new TextEncoder().encode(
-  process.env.JWT_SECRET || "sacf-prototype-secret-change-in-production-2024"
-)
 
 const publicPaths = ["/", "/login", "/register"]
 
-export async function middleware(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Allow public paths and API routes (API routes handle their own auth)
   if (
     publicPaths.includes(pathname) ||
     pathname.startsWith("/api/") ||
@@ -21,18 +15,15 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  // Solo verifica que la cookie exista — la validación JWT real
+  // ocurre en las API routes y server actions (Node.js runtime)
   const token = request.cookies.get("sacf-session")?.value
 
   if (!token) {
     return NextResponse.redirect(new URL("/login", request.url))
   }
 
-  try {
-    await jwtVerify(token, secret)
-    return NextResponse.next()
-  } catch {
-    return NextResponse.redirect(new URL("/login", request.url))
-  }
+  return NextResponse.next()
 }
 
 export const config = {

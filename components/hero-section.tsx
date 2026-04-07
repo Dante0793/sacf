@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section
       // Aquí está la magia: w-[100vw] y ml-[calc(50%-50vw)] fuerzan a la sección a ignorar el contenedor padre
-      className="flex flex-col items-center text-center relative w-[100vw] ml-[calc(50%-50vw)] overflow-hidden py-0 px-4 h-screen min-h-[600px] bg-background"
+      className="flex flex-col items-center text-center relative w-[100vw] ml-[calc(50%-50vw)] overflow-hidden py-0 px-4 h-[70vh] md:h-screen min-h-[600px] bg-background"
     >
       {/* SVG Background */}
       <div className="absolute inset-0 z-0 flex justify-center">
@@ -149,7 +149,7 @@ export function HeroSection() {
         <Header />
       </div>
 
-      <div className="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-6 md:mb-7 lg:mb-9 max-w-md md:max-w-[500px] lg:max-w-[588px] mt-24 md:mt-[140px] lg:mt-[180px] px-4">
+      <div className="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-6 md:mb-7 lg:mb-9 max-w-md md:max-w-[500px] lg:max-w-[588px] mt-24 md:mt-[140px] lg:mt-[180px] px-4 flex flex-col items-center">
         <h1 className="text-foreground text-3xl md:text-4xl lg:text-6xl font-semibold leading-tight">
           Controla tu dinero, no tus emociones
         </h1>

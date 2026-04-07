@@ -1,32 +1,69 @@
 import type React from "react"
-import { Search } from "lucide-react"
+import { TrendingDown, TrendingUp } from "lucide-react"
 
-interface McpConnectivityIllustrationProps {
+interface EmotionalFinancialIllustrationProps {
   className?: string
 }
 
-const McpConnectivityIllustration: React.FC<McpConnectivityIllustrationProps> = ({ className = "" }) => {
-  // Integration data with new SVG paths
-  const integrations = [
-    { name: "Figma", icon: "/images/mcp-integrations/figma.svg", installed: true },
-    { name: "Shadcn UI", icon: "/images/mcp-integrations/shadcn.svg" },
-    { name: "Next.js", icon: "/images/mcp-integrations/nextjs.svg", installed: true },
-    { name: "Tailwind CSS", icon: "/images/mcp-integrations/tailwind-css.svg" },
-    { name: "Resend", icon: "/images/mcp-integrations/resend.svg", installed: true },
-    { name: "React", icon: "/images/mcp-integrations/react.svg" },
-  ]
+const entries = [
+  {
+    emotion: "😰",
+    label: "Ansioso",
+    action: "Vendiste ETH",
+    amount: "-$320",
+    trend: "down",
+    color: "#ef4444",
+    bg: "rgba(239,68,68,0.08)",
+  },
+  {
+    emotion: "😄",
+    label: "Eufórico",
+    action: "Compraste DOGE",
+    amount: "-$150",
+    trend: "down",
+    color: "#f97316",
+    bg: "rgba(249,115,22,0.08)",
+  },
+  {
+    emotion: "😌",
+    label: "Tranquilo",
+    action: "Invertiste en fondo",
+    amount: "+$500",
+    trend: "up",
+    color: "#22c55e",
+    bg: "rgba(34,197,94,0.08)",
+  },
+  {
+    emotion: "😤",
+    label: "Frustrado",
+    action: "Gasto impulsivo",
+    amount: "-$85",
+    trend: "down",
+    color: "#ef4444",
+    bg: "rgba(239,68,68,0.08)",
+  },
+  {
+    emotion: "🧘",
+    label: "Sereno",
+    action: "Ahorro programado",
+    amount: "+$200",
+    trend: "up",
+    color: "#22c55e",
+    bg: "rgba(34,197,94,0.08)",
+  },
+]
 
+const EmotionalFinancialIllustration: React.FC<EmotionalFinancialIllustrationProps> = ({ className = "" }) => {
   return (
     <div
       className={`w-full h-full flex items-center justify-center p-4 relative ${className}`}
       role="img"
-      aria-label="MCP Connectivity component showcasing installed integrations list"
+      aria-label="Ilustración de seguimiento emocional y financiero"
     >
-      {/* Main Message Box */}
       <div
         style={{
           position: "absolute",
-          top: "50%",
+          top: "37%",
           left: "50%",
           transform: "translate(-50%, calc(-50% + 24px))",
           width: "345px",
@@ -36,133 +73,157 @@ const McpConnectivityIllustration: React.FC<McpConnectivityIllustrationProps> = 
           borderRadius: "9.628px",
           border: "0.802px solid hsl(var(--border))",
           overflow: "hidden",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
+        {/* Header */}
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            height: "100%",
-            width: "100%",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "8px 14px",
+            borderBottom: "0.802px solid hsl(var(--border))",
+            flexShrink: 0,
           }}
         >
-          {/* Search Header */}
-          <div
+          <span
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "12.837px",
-              padding: "8.826px 12.837px",
-              borderBottom: "0.802px solid hsl(var(--border))",
-              width: "100%",
-              boxSizing: "border-box",
+              fontFamily: "'Geist', -apple-system, sans-serif",
+              fontSize: "11px",
+              fontWeight: 600,
+              color: "hsl(var(--foreground))",
             }}
           >
-            <div
-              style={{
-                width: "14.442px",
-                height: "14.442px",
-                position: "relative",
-                flexShrink: 0,
-              }}
-            >
-              <Search className="w-full h-full text-muted-foreground" />
-            </div>
+            Emociones &amp; Finanzas
+          </span>
+          <div
+            style={{
+              background: "rgba(34,197,94,0.12)",
+              border: "0.5px solid rgba(34,197,94,0.3)",
+              borderRadius: "4px",
+              padding: "2px 7px",
+            }}
+          >
             <span
               style={{
-                fontFamily: "'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                fontSize: "12.837px",
-                lineHeight: "19.256px",
-                color: "hsl(var(--muted-foreground))",
-                fontWeight: 400,
-                whiteSpace: "nowrap",
+                fontFamily: "'Geist', -apple-system, sans-serif",
+                fontSize: "9px",
+                fontWeight: 500,
+                color: "#22c55e",
               }}
             >
-              Search for servers
+              En vivo
             </span>
           </div>
-          {/* Integration List */}
-          {integrations.map((integration, index) => (
+        </div>
+
+        {/* Entries */}
+        <div style={{ flex: 1, overflowY: "hidden" }}>
+          {entries.map((entry, index) => (
             <div
-              key={integration.name}
+              key={index}
               style={{
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                padding: "8.826px 12.837px",
-                borderBottom: index < integrations.length - 1 ? "0.479px solid hsl(var(--border))" : "none",
-                width: "100%",
-                boxSizing: "border-box",
+                padding: "7px 14px",
+                borderBottom: index < entries.length - 1 ? "0.479px solid hsl(var(--border))" : "none",
               }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "12.837px",
-                }}
-              >
+              {/* Left: emoji + labels */}
+              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                 <div
                   style={{
-                    width: "24px",
-                    height: "24px",
-                    position: "relative",
+                    width: "28px",
+                    height: "28px",
+                    borderRadius: "50%",
+                    background: entry.bg,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
+                    fontSize: "14px",
                     flexShrink: 0,
                   }}
                 >
-                  <img
-                    src={integration.icon || "/placeholder.svg"}
-                    alt={integration.name}
-                    className="w-full h-full object-contain opacity-70 grayscale" // Apply opacity and grayscale
-                  />
+                  {entry.emotion}
                 </div>
-                <span
-                  style={{
-                    fontFamily: "'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                    fontSize: "12.837px",
-                    lineHeight: "19.256px",
-                    color: "hsl(var(--muted-foreground))",
-                    fontWeight: 400,
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {integration.name}
-                </span>
-              </div>
-              {integration.installed && (
-                <div
-                  style={{
-                    background: "hsl(var(--primary) / 0.08)",
-                    padding: "1.318px 5.272px",
-                    borderRadius: "3.295px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
+                <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
                   <span
                     style={{
-                      fontFamily: "'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                      fontSize: "9.583px",
-                      lineHeight: "15.333px",
-                      color: "hsl(var(--primary))",
-                      fontWeight: 500,
-                      whiteSpace: "nowrap",
+                      fontFamily: "'Geist', -apple-system, sans-serif",
+                      fontSize: "10px",
+                      fontWeight: 600,
+                      color: entry.color,
+                      lineHeight: "1",
                     }}
                   >
-                    Installed
+                    {entry.label}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "'Geist', -apple-system, sans-serif",
+                      fontSize: "10px",
+                      fontWeight: 400,
+                      color: "hsl(var(--muted-foreground))",
+                      lineHeight: "1",
+                    }}
+                  >
+                    {entry.action}
                   </span>
                 </div>
-              )}
+              </div>
+
+              {/* Right: amount + trend */}
+              <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+                {entry.trend === "up" ? (
+                  <TrendingUp style={{ width: "12px", height: "12px", color: "#22c55e" }} />
+                ) : (
+                  <TrendingDown style={{ width: "12px", height: "12px", color: "#ef4444" }} />
+                )}
+                <span
+                  style={{
+                    fontFamily: "'Geist', -apple-system, sans-serif",
+                    fontSize: "11px",
+                    fontWeight: 600,
+                    color: entry.trend === "up" ? "#22c55e" : "#ef4444",
+                  }}
+                >
+                  {entry.amount}
+                </span>
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* Footer insight */}
+        <div
+          style={{
+            borderTop: "0.802px solid hsl(var(--border))",
+            padding: "6px 14px",
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+            flexShrink: 0,
+            background: "rgba(99,102,241,0.05)",
+          }}
+        >
+          <span style={{ fontSize: "11px" }}>💡</span>
+          <span
+            style={{
+              fontFamily: "'Geist', -apple-system, sans-serif",
+              fontSize: "9.5px",
+              color: "hsl(var(--muted-foreground))",
+              fontStyle: "italic",
+            }}
+          >
+            Decisiones tranquilas generan mejores resultados
+          </span>
         </div>
       </div>
     </div>
   )
 }
 
-export default McpConnectivityIllustration
+export default EmotionalFinancialIllustration

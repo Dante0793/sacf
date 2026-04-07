@@ -175,14 +175,14 @@ export default function LoginPage() {
           </form>
 
           {/* Divider */}
-          <div className="flex items-center gap-3 my-6">
+          {/* <div className="flex items-center gap-3 my-6">
             <div className="flex-1 h-px bg-white/10" />
             <span className="text-xs text-muted-foreground/50">o continúa con</span>
             <div className="flex-1 h-px bg-white/10" />
-          </div>
+          </div> */}
 
           {/* Social buttons → redirigen al dashboard directamente */}
-          <div className="grid grid-cols-2 gap-3">
+          {/* <div className="grid grid-cols-2 gap-3">
             <button
               id="login-google"
               type="button"
@@ -208,7 +208,7 @@ export default function LoginPage() {
               </svg>
               GitHub
             </button>
-          </div>
+          </div> */}
 
           {/* Register link */}
           <p className="mt-8 text-center text-sm text-muted-foreground">

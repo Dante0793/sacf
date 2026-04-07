@@ -2,8 +2,8 @@
 
 export function DashboardPreview() {
   return (
-    <div className="w-full max-w-[calc(100vw-32px)] md:w-[1160px] md:max-w-[calc(100vw-64px)] mx-auto">
-      <div className="bg-gray-100/50 rounded-2xl p-2 md:p-4 shadow-2xl border border-gray-200">
+    <div className="w-[calc(100vw-24px)] sm:w-[calc(100vw-48px)] md:w-[900px] lg:w-[1160px] md:max-w-[calc(100vw-64px)] mx-auto">
+      <div className="bg-gray-100/50 rounded-xl md:rounded-2xl p-1.5 sm:p-2 md:p-4 shadow-lg md:shadow-2xl border border-gray-200">
         {/* Contenedor responsivo para mantener el aspect ratio del SVG */}
         <div className="relative w-full overflow-hidden rounded-xl shadow-lg border border-gray-200 bg-white" style={{ aspectRatio: '1160/700' }}>
           <svg

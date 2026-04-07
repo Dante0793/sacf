@@ -1,157 +1,329 @@
 import type React from "react"
+import { Users, MessageCircle, BookOpen, Star, CheckCircle } from "lucide-react"
 
-interface DeploymentEasyProps {
-  /** Width of component – number (px) or any CSS size value */
+interface CommunityAccessProps {
   width?: number | string
-  /** Height of component – number (px) or any CSS size value */
   height?: number | string
-  /** Extra Tailwind / CSS classes for root element */
   className?: string
 }
 
-const DeploymentEasy: React.FC<DeploymentEasyProps> = ({ width = "100%", height = "100%", className = "" }) => {
-  /* ------------------------------------------------------------
-   * Theme-based design tokens using global CSS variables
-   * ---------------------------------------------------------- */
-  const themeVars = {
-    "--deploy-primary-color": "hsl(var(--primary))",
-    "--deploy-background-color": "hsl(var(--background))",
-    "--deploy-text-color": "hsl(var(--foreground))",
-    "--deploy-text-secondary": "hsl(var(--muted-foreground))",
-    "--deploy-border-color": "hsl(var(--border))",
-  } as React.CSSProperties
+const coaches = [
+  {
+    initials: "AL",
+    name: "Ana López",
+    specialty: "Sesgos cognitivos",
+    rating: 4.9,
+    sessions: 312,
+    color: "#818cf8",
+    bg: "rgba(129,140,248,0.15)",
+  },
+  {
+    initials: "CR",
+    name: "Carlos Reyes",
+    specialty: "Ahorro conductual",
+    rating: 4.8,
+    sessions: 218,
+    color: "#34d399",
+    bg: "rgba(52,211,153,0.15)",
+  },
+  {
+    initials: "MP",
+    name: "María Pérez",
+    specialty: "Inversión emocional",
+    rating: 5.0,
+    sessions: 407,
+    color: "#f59e0b",
+    bg: "rgba(245,158,11,0.15)",
+  },
+]
 
-  /* ------------------------------------------------------------
-   * Console log output (static for demo) – can be replaced via props
-   * ---------------------------------------------------------- */
-  const logLines = [
-    "[16:37:25.637] Running build in Washington, D.C., USA (East) – iad1",
-    "[16:37:25.638] Build machine configuration: 2 cores, 8 GB",
-    "[16:37:25.653] Retrieving list of deployment files...",
-    "[16:37:25.741] Previous build caches not available",
-    "[16:37:25.979] Downloading 84 deployment files...",
-    '[16:37:29.945] Running "vercel build"',
-    "[16:37:30.561] Vercel CLI 44.5.0",
-    '[16:37:30.880] Running "install" command: `bun install`...',
-    "[16:37:30.914] bun install v1.2.19 (aad3abea)",
-    "[16:37:30.940] Resolving dependencies",
-    "[16:37:34.436] Resolved, downloaded and extracted [1116]",
-    '[16:37:34.436] warn: incorrect peer dependency "react@19.1.0"',
-    "[16:37:37.265] Saved lockfile",
-    "[16:37:39.076] Next.js anonymous telemetry notice",
-    "[16:37:39.137] ▲ Next.js 15.2.4",
-    "[16:37:41.439] ✓ Compiled successfully",
-    "[16:37:53.979] ✓ Generated static pages",
-    "[16:38:00.585] ○ (Static) prerendered as static content",
-    "[16:38:01.099] Build Completed in /vercel/output [30s]",
-    "🚀 Deployment complete – Easy!",
-  ]
+const stats = [
+  { icon: <Users style={{ width: "11px", height: "11px" }} />, label: "Miembros activos", value: "2,400+" },
+  { icon: <MessageCircle style={{ width: "11px", height: "11px" }} />, label: "Sesiones este mes", value: "940" },
+  { icon: <BookOpen style={{ width: "11px", height: "11px" }} />, label: "Recursos disponibles", value: "180+" },
+]
 
+const CommunityAccess: React.FC<CommunityAccessProps> = ({ width = "100%", height = "100%", className = "" }) => {
   return (
     <div
-      className={`w-full h-full flex items-center justify-center p-4 relative ${className}`}
-      style={{
-        width,
-        height,
-        position: "relative",
-        background: "transparent",
-        ...themeVars,
-      }}
+      className={`w-full h-full flex flex-col items-center justify-start relative ${className}`}
+      style={{ width, height, background: "transparent" }}
       role="img"
-      aria-label="Deployment console output with Deploy on Vercel button"
+      aria-label="Acceso a comunidad y coaches especializados en finanzas conductuales"
     >
-      {/* -------------------------------------------------------- */}
-      {/* Console / Terminal panel                                */}
-      {/* -------------------------------------------------------- */}
+      {/* Main card */}
       <div
         style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "340px",
-          height: "239px",
-          background: "linear-gradient(180deg, var(--deploy-background-color) 0%, transparent 100%)",
-          backdropFilter: "blur(7.907px)",
+          width: "calc(100% - 48px)",
+          margin: "1px 24px 0 24px",
+          background: "linear-gradient(180deg, hsl(var(--primary) / 0.05) 0%, transparent 100%)",
+          backdropFilter: "blur(16px)",
           borderRadius: "10px",
+          border: "0.8px solid hsl(var(--border))",
           overflow: "hidden",
+          padding: "10px 16px 10px 16px",
+          boxSizing: "border-box",
+          display: "flex",
+          flexDirection: "column",
+          gap: "4px",
         }}
       >
-        {/* Inner translucent panel – replicates subtle overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: "2px",
-            borderRadius: "8px",
-            background: "hsl(var(--foreground) / 0.08)",
-          }}
-        />
+        {/* Header */}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+            <Users style={{ width: "13px", height: "13px", color: "hsl(var(--primary))" }} />
+            <span
+              style={{
+                fontFamily: "'Geist', -apple-system, sans-serif",
+                fontSize: "11px",
+                fontWeight: 700,
+                color: "hsl(var(--foreground))",
+              }}
+            >
+              Comunidad SACF
+            </span>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "4px",
+              padding: "2px 7px",
+              borderRadius: "20px",
+              background: "rgba(52,211,153,0.12)",
+              border: "0.6px solid rgba(52,211,153,0.3)",
+            }}
+          >
+            <div
+              style={{
+                width: "5px",
+                height: "5px",
+                borderRadius: "50%",
+                background: "#34d399",
+              }}
+            />
+            <span
+              style={{
+                fontFamily: "'Geist', -apple-system, sans-serif",
+                fontSize: "8.5px",
+                color: "#34d399",
+                fontWeight: 500,
+              }}
+            >
+              En línea
+            </span>
+          </div>
+        </div>
 
-        {/* Log text */}
-        <div
-          style={{
-            position: "relative",
-            padding: "8px",
-            height: "100%",
-            overflow: "hidden",
-            fontFamily: "'Geist Mono', 'SF Mono', Monaco, Consolas, 'Liberation Mono', monospace",
-            fontSize: "10px",
-            lineHeight: "16px",
-            color: "var(--deploy-text-color)",
-            whiteSpace: "pre",
-          }}
-        >
-          {logLines.map((line, index) => (
-            <p key={index} style={{ margin: 0 }}>
-              {line}
-            </p>
+        {/* Stats row */}
+        <div style={{ display: "flex", gap: "6px" }}>
+          {stats.map((s, i) => (
+            <div
+              key={i}
+              style={{
+                flex: 1,
+                padding: "7px 8px",
+                background: "hsl(var(--card) / 0.3)",
+                borderRadius: "7px",
+                border: "0.6px solid hsl(var(--border))",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "3px",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: "'Geist', -apple-system, sans-serif",
+                  fontSize: "11px",
+                  fontWeight: 700,
+                  color: "hsl(var(--primary))",
+                }}
+              >
+                {s.value}
+              </span>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "3px",
+                  color: "hsl(var(--muted-foreground))",
+                }}
+              >
+                {s.icon}
+                <span
+                  style={{
+                    fontFamily: "'Geist', -apple-system, sans-serif",
+                    fontSize: "7.5px",
+                    color: "hsl(var(--muted-foreground))",
+                    textAlign: "center",
+                    lineHeight: "1.2",
+                  }}
+                >
+                  {s.label}
+                </span>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Inner border overlay */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            border: "0.791px solid var(--deploy-border-color)",
-            borderRadius: "10px",
-            pointerEvents: "none",
-          }}
-        />
-      </div>
+        {/* Divider */}
+        <div style={{ borderTop: "0.6px solid hsl(var(--border))", margin: "0 -16px" }} />
 
-      {/* -------------------------------------------------------- */}
-      {/* Call-to-action button                                   */}
-      {/* -------------------------------------------------------- */}
-      <button
-        style={{
-          position: "absolute",
-          top: "calc(50% + 57.6px)",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "6.375px",
-          padding: "5.1px 10.2px",
-          background: "var(--deploy-primary-color)",
-          color: "hsl(var(--primary-foreground))",
-          border: "none",
-          cursor: "pointer",
-          borderRadius: "8.925px",
-          fontFamily: "'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-          fontSize: "16.575px",
-          lineHeight: "25.5px",
-          letterSpacing: "-0.51px",
-          fontWeight: 500,
-          whiteSpace: "nowrap",
-          boxShadow:
-            "0px 42.075px 11.475px rgba(0, 0, 0, 0), 0px 26.775px 10.2px rgba(0, 0, 0, 0.01), 0px 15.3px 8.925px rgba(0, 0, 0, 0.05), 0px 6.375px 6.375px rgba(0, 0, 0, 0.09), 0px 1.275px 3.825px rgba(0, 0, 0, 0.1)",
-        }}
-      >
-      </button>
+        {/* Coaches section */}
+        <div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: "8px",
+            }}
+          >
+            <span
+              style={{
+                fontFamily: "'Geist', -apple-system, sans-serif",
+                fontSize: "10px",
+                fontWeight: 600,
+                color: "hsl(var(--foreground))",
+              }}
+            >
+              Coaches especializados
+            </span>
+            <div style={{ display: "flex", alignItems: "center", gap: "3px" }}>
+              <CheckCircle style={{ width: "9px", height: "9px", color: "#818cf8" }} />
+              <span
+                style={{
+                  fontFamily: "'Geist', -apple-system, sans-serif",
+                  fontSize: "8px",
+                  color: "hsl(var(--muted-foreground))",
+                }}
+              >
+                Certificados
+              </span>
+            </div>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "7px" }}>
+            {coaches.map((coach, i) => (
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "9px",
+                  padding: "7px 9px",
+                  background: "linear-gradient(135deg, hsl(var(--card) / 0.3) 0%, transparent 100%)",
+                  borderRadius: "8px",
+                  border: "0.6px solid hsl(var(--border))",
+                }}
+              >
+                {/* Avatar */}
+                <div
+                  style={{
+                    width: "28px",
+                    height: "28px",
+                    borderRadius: "50%",
+                    background: coach.bg,
+                    border: `1.5px solid ${coach.color}`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "'Geist', -apple-system, sans-serif",
+                      fontSize: "8.5px",
+                      fontWeight: 700,
+                      color: coach.color,
+                    }}
+                  >
+                    {coach.initials}
+                  </span>
+                </div>
+
+                {/* Info */}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "5px" }}>
+                    <span
+                      style={{
+                        fontFamily: "'Geist', -apple-system, sans-serif",
+                        fontSize: "9.5px",
+                        fontWeight: 600,
+                        color: "hsl(var(--foreground))",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {coach.name}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "'Geist', -apple-system, sans-serif",
+                        fontSize: "8px",
+                        color: "hsl(var(--muted-foreground))",
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                      }}
+                    >
+                      · {coach.specialty}
+                    </span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "4px", marginTop: "2px" }}>
+                    <Star style={{ width: "8px", height: "8px", color: "#f59e0b", fill: "#f59e0b" }} />
+                    <span
+                      style={{
+                        fontFamily: "'Geist', -apple-system, sans-serif",
+                        fontSize: "8px",
+                        color: "#f59e0b",
+                        fontWeight: 600,
+                      }}
+                    >
+                      {coach.rating}
+                    </span>
+                    <span
+                      style={{
+                        fontFamily: "'Geist', -apple-system, sans-serif",
+                        fontSize: "8px",
+                        color: "hsl(var(--muted-foreground))",
+                      }}
+                    >
+                      · {coach.sessions} sesiones
+                    </span>
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div
+                  style={{
+                    padding: "3px 8px",
+                    borderRadius: "20px",
+                    background: coach.bg,
+                    border: `0.6px solid ${coach.color}`,
+                    flexShrink: 0,
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "'Geist', -apple-system, sans-serif",
+                      fontSize: "7.5px",
+                      fontWeight: 600,
+                      color: coach.color,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    Agendar
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
 
-export default DeploymentEasy
+export default CommunityAccess

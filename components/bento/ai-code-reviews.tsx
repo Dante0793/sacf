@@ -1,6 +1,6 @@
 import type React from "react"
 
-const AiCodeReviews: React.FC = () => {
+const AiSpendingAnalysis: React.FC = () => {
   const themeVars = {
     "--ai-primary-color": "hsl(var(--primary))",
     "--ai-background-color": "hsl(var(--background))",
@@ -8,9 +8,41 @@ const AiCodeReviews: React.FC = () => {
     "--ai-text-dark": "hsl(var(--primary-foreground))",
     "--ai-border-color": "hsl(var(--border))",
     "--ai-border-main": "hsl(var(--foreground) / 0.1)",
-    "--ai-highlight-primary": "hsl(var(--primary) / 0.12)",
+    "--ai-highlight-primary": "hsl(var(--primary) / 0.10)",
     "--ai-highlight-header": "hsl(var(--accent) / 0.2)",
+    "--ai-warn": "hsl(38 92% 50% / 0.15)",
+    "--ai-danger": "hsl(0 84% 60% / 0.13)",
   }
+
+  const transactions = [
+    {
+      label: "Amazon – Electrónica",
+      amount: "-$189.99",
+      time: "23:41",
+      trigger: "Compra impulsiva",
+      triggerColor: "hsl(0 84% 60%)",
+      triggerBg: "hsl(0 84% 60% / 0.12)",
+      highlight: "hsl(0 84% 60% / 0.07)",
+    },
+    {
+      label: "PedidosYa",
+      amount: "-$34.50",
+      time: "20:15",
+      trigger: "Estrés emocional",
+      triggerColor: "hsl(38 92% 50%)",
+      triggerBg: "hsl(38 92% 50% / 0.14)",
+      highlight: "hsl(38 92% 50% / 0.07)",
+    },
+    {
+      label: "Nike – Descuento 40 %",
+      amount: "-$97.00",
+      time: "18:03",
+      trigger: "FOMO / Oferta",
+      triggerColor: "hsl(var(--primary))",
+      triggerBg: "hsl(var(--primary) / 0.13)",
+      highlight: "hsl(var(--primary) / 0.07)",
+    },
+  ]
 
   return (
     <div
@@ -24,213 +56,212 @@ const AiCodeReviews: React.FC = () => {
         } as React.CSSProperties
       }
       role="img"
-      aria-label="AI Code Reviews interface showing code suggestions with apply buttons"
+      aria-label="Panel de análisis de IA que detecta patrones de gasto y desencadenantes psicológicos en tiempo real"
     >
-      {/* Background Message Box (Blurred) */}
+      {/* Background card (blurred / scaled back) */}
+      <div
+        style={{
+          position: "absolute",
+          top: "8px",
+          left: "50%",
+          transform: "translateX(-50%) scale(0.91)",
+          width: "344px",
+          height: "210px",
+          background: "linear-gradient(180deg, var(--ai-background-color) 0%, transparent 100%)",
+          opacity: 0.55,
+          borderRadius: "10px",
+          border: "1px solid var(--ai-border-color)",
+          overflow: "hidden",
+          backdropFilter: "blur(16px)",
+        }}
+      >
+        {/* Faint row hint */}
+        <div style={{ padding: "10px 12px", boxSizing: "border-box" }}>
+          {[0, 1].map((i) => (
+            <div
+              key={i}
+              style={{
+                height: "28px",
+                borderRadius: "6px",
+                background: "hsl(var(--foreground) / 0.04)",
+                marginBottom: "6px",
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Foreground card (main panel) */}
       <div
         style={{
           position: "absolute",
           top: "30px",
           left: "50%",
-          transform: "translateX(-50%) scale(0.9)",
-          width: "340px",
-          height: "205.949px",
-          background: "linear-gradient(180deg, var(--ai-background-color) 0%, transparent 100%)",
-          opacity: 0.6,
-          borderRadius: "8.826px",
-          border: "0.791px solid var(--ai-border-color)",
-          overflow: "hidden",
-          backdropFilter: "blur(16px)",
-        }}
-      >
-        <div
-          className="border rounded-lg bg-card"
-          style={{
-            padding: "7.355px 8.826px",
-            height: "100%",
-            boxSizing: "border-box",
-            overflow: "hidden",
-          }}
-        >
-          <div
-            style={{
-              fontFamily: "'Geist Mono', 'SF Mono', Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-              fontSize: "9.562px",
-              lineHeight: "14.711px",
-              letterSpacing: "-0.2942px",
-              color: "hsl(var(--muted-foreground))",
-              width: "100%",
-              maxWidth: "320px",
-              margin: 0,
-            }}
-          >
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>switch (type) {"{"}</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}> case 'success':</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}> return {"{"}</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>
-              {"          border: theme === 'dark' ? 'border-[rgba(34,197,94,0.4)]' : 'border-green-200',"}
-            </p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}> icon: (</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>
-              {'            <svg className={\'baseIconClasses\'} fill="none" viewBox="0 0 14 14">'}
-            </p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}> &lt;path</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>
-              {'                d="M3.85156 7.875L6.47656 10.5L10.8516 3.5"'}
-            </p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>
-              {'                stroke="var(--ai-primary-color)"'}
-            </p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>
-              {'                strokeLinecap="round"'}
-            </p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>
-              {'                strokeLinejoin="round"'}
-            </p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>{'                strokeWidth="1.5"'}</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}> /&gt;</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}> &lt;/svg&gt;</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Foreground Message Box (Main) */}
-      <div
-        style={{
-          position: "absolute",
-          top: "51.336px",
-          left: "50%",
           transform: "translateX(-50%)",
-          width: "340px",
-          height: "221.395px",
+          width: "344px",
           background: "var(--ai-background-color)",
-          backdropFilter: "blur(16px)",
-          borderRadius: "9.488px",
+          backdropFilter: "blur(20px)",
+          borderRadius: "10px",
           border: "1px solid var(--ai-border-main)",
           overflow: "hidden",
         }}
       >
+        {/* Header */}
         <div
-          className="bg-card border border-border"
+          className="bg-card"
           style={{
-            padding: "9.488px",
-            height: "100%",
-            boxSizing: "border-box",
-            position: "relative",
-            overflow: "hidden",
+            padding: "9px 12px 8px",
+            borderBottom: "1px solid var(--ai-border-main)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
           }}
         >
-          <div
-            style={{
-              position: "absolute",
-              left: 0,
-              right: 0,
-              width: "100%",
-              top: "47.67px",
-              height: "33.118px",
-              background: "hsl(var(--foreground) / 0.08)",
-              zIndex: 1,
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              left: 0,
-              right: 0,
-              width: "100%",
-              top: "80.791px",
-              height: "45.465px",
-              background: "var(--ai-highlight-primary)",
-              zIndex: 1,
-            }}
-          />
-          <div
-            style={{
-              fontFamily: "'Geist Mono', 'SF Mono', Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
-              fontSize: "10.279px",
-              lineHeight: "15.814px",
-              letterSpacing: "-0.3163px",
-              color: "var(--ai-text-color)",
-              width: "100%",
-              maxWidth: "320px",
-              position: "relative",
-              zIndex: 2,
-              margin: 0,
-            }}
-          >
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>switch (type) {"{"}</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}> case 'success':</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}> return {"{"}</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>
-              {"          border: theme === 'dark' ? 'border-[rgba(34,197,94,0.4)]' : 'border-green-200',"}
-            </p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}> icon: (</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>
-              {'            <svg className={\'baseIconClasses\'} fill="none" viewBox="0 0 14 14">'}
-            </p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}> &lt;path</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>
-              {'                d="M3.85156 7.875L6.47656 10.5L10.8516 3.5"'}
-            </p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>{'                stroke="#22C55E"'}</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>
-              {'                strokeLinecap="round"'}
-            </p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>
-              {'                strokeLinejoin="round"'}
-            </p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}>{'                strokeWidth="1.5"'}</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}> /&gt;</p>
-            <p style={{ margin: 0, whiteSpace: "pre-wrap", fontWeight: 400 }}> &lt;/svg&gt;</p>
+          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+            {/* Pulse dot */}
+            <span
+              style={{
+                width: "7px",
+                height: "7px",
+                borderRadius: "50%",
+                background: "hsl(142 71% 45%)",
+                display: "inline-block",
+                boxShadow: "0 0 0 2px hsl(142 71% 45% / 0.3)",
+              }}
+            />
+            <span
+              style={{
+                fontFamily: "'Geist', -apple-system, BlinkMacSystemFont, sans-serif",
+                fontSize: "10.5px",
+                fontWeight: 600,
+                color: "var(--ai-text-color)",
+                letterSpacing: "-0.2px",
+              }}
+            >
+              Análisis en tiempo real
+            </span>
           </div>
-          <button
+          <span
             style={{
-              position: "absolute",
-              top: "calc(50% + 29.745px)",
-              right: "20px",
-              transform: "translateY(-50%)",
-              zIndex: 3,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "3.953px",
-              background: "var(--ai-primary-color)",
-              color: "var(--ai-text-dark)",
-              border: "none",
-              cursor: "pointer",
-              fontWeight: 500,
-              whiteSpace: "nowrap",
-              transition: "all 0.2s ease",
-              padding: "3.163px 6.326px",
-              borderRadius: "5.535px",
-              fontSize: "10.279px",
-              lineHeight: "15.814px",
-              letterSpacing: "-0.3163px",
-              boxShadow:
-                "0px 26.093px 7.116px rgba(0, 0, 0, 0), 0px 16.605px 6.326px rgba(0, 0, 0, 0.01), 0px 9.488px 5.535px rgba(0, 0, 0, 0.05), 0px 3.953px 3.953px rgba(0, 0, 0, 0.09), 0px 0.791px 2.372px rgba(0, 0, 0, 0.1)",
+              fontFamily: "'Geist', sans-serif",
+              fontSize: "9.5px",
+              color: "hsl(var(--muted-foreground))",
+              letterSpacing: "-0.1px",
             }}
           >
-            <span
+            Hoy · 3 alertas
+          </span>
+        </div>
+
+        {/* Transaction rows */}
+        <div className="bg-card" style={{ padding: "6px 8px 8px" }}>
+          {transactions.map((tx, idx) => (
+            <div
+              key={idx}
               style={{
-                fontFamily: "'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                fontWeight: 500,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                background: tx.highlight,
+                borderRadius: "7px",
+                padding: "6px 8px",
+                marginBottom: idx < transactions.length - 1 ? "4px" : "0",
               }}
             >
-              Apply changes
-            </span>
-            <span
-              style={{
-                fontFamily: "'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, sans-serif",
-                fontWeight: 500,
-              }}
-            >
-              ⌘Y
-            </span>
-          </button>
+              {/* Left: name + trigger badge */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "3px" }}>
+                <span
+                  style={{
+                    fontFamily: "'Geist', sans-serif",
+                    fontSize: "10px",
+                    fontWeight: 500,
+                    color: "var(--ai-text-color)",
+                    letterSpacing: "-0.15px",
+                  }}
+                >
+                  {tx.label}
+                </span>
+                <span
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "3px",
+                    background: tx.triggerBg,
+                    color: tx.triggerColor,
+                    borderRadius: "4px",
+                    padding: "1.5px 5px",
+                    fontSize: "8.5px",
+                    fontWeight: 600,
+                    letterSpacing: "0.1px",
+                    width: "fit-content",
+                    fontFamily: "'Geist', sans-serif",
+                  }}
+                >
+                  IA: {tx.trigger}
+                </span>
+              </div>
+
+              {/* Right: amount + time */}
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "3px" }}>
+                <span
+                  style={{
+                    fontFamily: "'Geist Mono', monospace",
+                    fontSize: "10px",
+                    fontWeight: 700,
+                    color: "hsl(0 72% 51%)",
+                    letterSpacing: "-0.2px",
+                  }}
+                >
+                  {tx.amount}
+                </span>
+                <span
+                  style={{
+                    fontFamily: "'Geist', sans-serif",
+                    fontSize: "8.5px",
+                    color: "hsl(var(--muted-foreground))",
+                  }}
+                >
+                  {tx.time}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Footer: AI insight bar */}
+        <div
+          style={{
+            background: "var(--ai-highlight-primary)",
+            borderTop: "1px solid var(--ai-border-main)",
+            padding: "7px 12px",
+            display: "flex",
+            alignItems: "center",
+            gap: "7px",
+          }}
+        >
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
+            <path
+              d="M6 1L7.5 4.5L11 5L8.5 7.5L9.5 11L6 9L2.5 11L3.5 7.5L1 5L4.5 4.5L6 1Z"
+              fill="hsl(var(--primary))"
+            />
+          </svg>
+          <span
+            style={{
+              fontFamily: "'Geist', sans-serif",
+              fontSize: "9px",
+              color: "hsl(var(--muted-foreground))",
+              letterSpacing: "-0.1px",
+              lineHeight: "1.4",
+            }}
+          >
+            Gastaste{" "}
+            <strong style={{ color: "var(--ai-text-color)", fontWeight: 600 }}>43 % más</strong> los miércoles
+            nocturnos. Posible gatillo de estrés laboral.
+          </span>
         </div>
       </div>
     </div>
   )
 }
 
-export default AiCodeReviews
+export default AiSpendingAnalysis

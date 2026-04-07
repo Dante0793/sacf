@@ -40,7 +40,7 @@ function TlacuacheLogo({ size = 36 }: { size?: number }) {
 function Logo() {
   return (
     <div className="flex items-center gap-2.5">
-      <TlacuacheLogo size={34} />
+      {/* <TlacuacheLogo size={34} /> */}
       <span className="text-xl font-bold font-sans tracking-[0.2em] text-[#2d2b3b]">
         S<span className="text-brand-accent">A</span>CF
       </span>

@@ -81,7 +81,7 @@ export function BentoSection() {
             </p>
           </div>
         </div>
-        <div className="self-stretch grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 z-10">
+        <div className="self-stretch grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 z-10">
           {cards.map((card) => (
             <BentoCard key={card.title} {...card} />
           ))}

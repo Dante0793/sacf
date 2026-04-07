@@ -6,7 +6,7 @@ import { Twitter, Github, Linkedin } from "lucide-react"
 function Logo() {
   return (
     <div className="flex items-center gap-3">
-      <svg
+      {/* <svg
         viewBox="0 0 100 100"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@ function Logo() {
         <circle cx="36" cy="50" r="5" fill="#1a1a1a" />
         <circle cx="64" cy="50" r="5" fill="#1a1a1a" />
         <path d="M50 92 L43 78 Q50 74 57 78 Z" fill="#f43f5e" />
-      </svg>
+      </svg> */}
       <span className="text-foreground text-2xl font-black font-serif italic tracking-widest flex items-baseline">
         S<span className="text-[#f43f5e] -ml-0.5">A</span>CF
       </span>

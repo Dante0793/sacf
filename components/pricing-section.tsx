@@ -11,8 +11,8 @@ export function PricingSection() {
   const pricingPlans = [
     {
       name: "Libre",
-      monthlyPrice: "$0",
-      annualPrice: "$0",
+      monthlyPrice: "0 Bs.",
+      annualPrice: "0 Bs.",
       description: "Perfecto para comenzar tu transformación.",
       features: [
         "Seguimiento básico de gastos",
@@ -27,8 +27,8 @@ export function PricingSection() {
     },
     {
       name: "Premium",
-      monthlyPrice: "$25",
-      annualPrice: "$20",
+      monthlyPrice: "25 Bs.",
+      annualPrice: "20 Bs.",
       description: "Ideal para cambio real de comportamiento.",
       features: [
         "Análisis psicológico completo de gastos",
@@ -46,8 +46,8 @@ export function PricingSection() {
     },
     {
       name: "Profesional",
-      monthlyPrice: "$99",
-      annualPrice: "$79",
+      monthlyPrice: "60 Bs.",
+      annualPrice: "50 Bs.",
       description: "Para familias y equipos empresariales.",
       features: [
         "Coaching dedicado especializado",
@@ -121,7 +121,7 @@ export function PricingSection() {
           <div
             key={plan.name}
             className={`flex-1 p-6 md:p-8 overflow-hidden rounded-2xl flex flex-col justify-start items-start gap-6 transition-all duration-300 ${plan.popular
-                ? "bg-[#ca2c41] shadow-[0px_8px_20px_-4px_rgba(202,44,65,0.3)] scale-105 z-10"
+                ? "bg-[#ca2c41] shadow-[0px_8px_20px_-4px_rgba(202,44,65,0.3)] md:scale-105 z-10"
                 : "bg-white border border-gray-200 shadow-sm mt-0 md:mt-4"
               }`}
           >

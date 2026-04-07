@@ -90,30 +90,6 @@ export function AppSidebar() {
       {/* ─── Header: Tlacuache Logo ── */}
       <SidebarHeader className="h-14 flex flex-row items-center border-b border-[#e5e7eb] px-4 group-data-[collapsible=icon]:px-0 group-data-[collapsible=icon]:justify-center">
         <Link href="/dashboard" className="flex items-center gap-3 group">
-          <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-[#2d2b3b] shadow-sm shrink-0 transition-transform group-hover:scale-110 overflow-hidden border border-[#2d2b3b]">
-            <svg width="100%" height="100%" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" className="scale-[0.8]">
-              {/* Orejas */}
-              <circle cx="14" cy="16" r="8" fill="#e5e7eb" />
-              <circle cx="38" cy="16" r="8" fill="#e5e7eb" />
-              <circle cx="14" cy="16" r="4.5" fill="black" />
-              <circle cx="38" cy="16" r="4.5" fill="black" />
-              
-              {/* Cara */}
-              <path d="M7 24 C7 14, 45 14, 45 24 C45 34, 30 46, 26 48 C22 46, 7 34, 7 24 Z" fill="#fcfcfc" />
-              
-              {/* Mancha negra frente */}
-              <path d="M18 12 Q26 28 34 12 L26 12 Z" fill="black" />
-              
-              {/* Ojos */}
-              <circle cx="20" cy="27" r="3" fill="black" />
-              <circle cx="32" cy="27" r="3" fill="black" />
-              <circle cx="19.5" cy="26" r="1.5" fill="white" />
-              <circle cx="31.5" cy="26" r="1.5" fill="white" />
-              
-              {/* Nariz */}
-              <path d="M23 44 C23 41, 29 41, 29 44 L26 49 Z" fill="#ea580c" />
-            </svg>
-          </div>
           <span className="text-xl font-bold font-sans tracking-[0.2em] text-[#2d2b3b] group-data-[collapsible=icon]:hidden mt-0.5 ml-1">
             S<span className="text-[#ea580c]">A</span>CF
           </span>
